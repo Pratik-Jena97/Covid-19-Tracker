@@ -1,0 +1,228 @@
+body {
+  background-color: aliceblue;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-size: 100px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+}
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  text-align: center;
+  color: black;
+  text-align: center;
+  margin-bottom: 0;
+}
+h3 {
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  color: cadetblue;
+  margin-top: 20px;
+}
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  color: cadetblue;
+  margin: auto auto;
+  padding-left: 5px;
+}
+.covid-icon {
+  width: 6%;
+  margin-bottom: 20px;
+}
+.container {
+  position: relative;
+  margin: auto auto;
+}
+.container .box {
+  position: relative;
+  width: 10%;
+  height: 12rem;
+  background-color: white;
+  float: middle;
+  margin: 15px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 10px;
+  left: 150px;
+}
+.deaths h2 {
+  color: red;
+}
+.recovered h2 {
+  color: greenyellow;
+}
+#myChart {
+  width: 600px;
+  height: 250px;
+}
+.choose-category {
+  display: flex;
+  float: middle;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+.category,
+.chartCategory {
+  padding-left: 0px;
+  padding-right: 0px;
+  display: inline;
+  margin: auto;
+  left: 50px;
+}
+
+.select-box,
+.chartCategory .select-box {
+  margin: auto;
+  width: 300px;
+  float: middle;
+  position: relative;
+}
+
+.select-box .options-container,
+.chartCategory .select-box .chart-options-container {
+  background: #2f3640;
+  color: #f5f6fa;
+  max-height: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.4s;
+  border-radius: 8px;
+  overflow: hidden;
+  order: 1;
+}
+.selected {
+  background: #2f3640;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  color: #f5f6fa;
+  position: relative;
+  order: 0;
+}
+
+.selected::after {
+  content: "";
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 100%;
+  width: 32px;
+  right: 10px;
+  top: 5px;
+  transition: all 0.4s;
+}
+.down-arrow {
+  float: right;
+}
+.select-box .options-container.active,
+.select-box .chart-options-container.active {
+  max-height: 240px;
+  opacity: 1;
+  overflow-y: scroll;
+}
+
+.select-box .options-container.active + .selected::after,
+.select-box .chart-optionscontainer.active + .selected::after {
+  transform: rotateX(180deg);
+  top: -6px;
+}
+.select-box .options-container::-webkit-scrollbar,
+.select-box .chart-options-container::-webkitscrollbar {
+  width: 8px;
+  background: #0d141f;
+  border-radius: 0 8px 8px 0;
+}
+
+.select-box .options-container::-webkit-scrollbar-thumb,
+.select-box .chart-options-container::-webkit-scrollbar-thumb {
+  background: #525861;
+  border-radius: 0 8px 8px 0;
+}
+
+.select-box .option,
+.selected {
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+.select-box .option:hover {
+  background: #414b57;
+}
+
+.select-box label {
+  cursor: pointer;
+}
+
+.select-box .option .radio {
+  display: none;
+}
+.footer {
+  background: #2f3640;
+  text-align: center;
+  padding-top: 30px;
+}
+.footer p {
+  color: white;
+}
+.footer a {
+  padding: 20px 20px;
+}
+@media (max-width: 992px) {
+  .covid-icon {
+    width: 15%;
+    margin-bottom: 20px;
+  }
+  .container .box {
+    height: 15rem;
+  }
+  .container .box {
+    left: 100px;
+  }
+  .category {
+    margin: 0;
+  }
+  .select-box {
+    width: 230px;
+  }
+  #myChart {
+    width: 1000px;
+    height: 500px;
+  }
+}
+@media (max-width: 578px) {
+  .covid-icon {
+    width: 15%;
+    margin-bottom: 20px;
+  }
+  .container .box {
+    height: 15rem;
+  }
+  .container {
+    margin: auto auto;
+  }
+  .container .box {
+    left: 15px;
+    width: 40%;
+  }
+  .category {
+    margin: 0;
+  }
+  .select-box,
+  .chartCategory .select-box {
+    width: 160px;
+  }
+  .container .barChart {
+    width: 80%;
+  }
+  .choose-category {
+    display: flex;
+    float: middle;
+    margin: auto auto;
+  }
+}

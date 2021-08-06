@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-19 Tracker</title>
+    <!--Bootstrap links-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!--AwesomeFonts Link-->
+    
+    <!--Google Fonts-->
+
+    <!--Custom Stylesheet-->
+    <link rel="stylesheet" href="style.css">
+    <!--Chart.js link-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+     
+
+</head>
+
+<body>
+    <div class="header">
+        <h1>C<span><img class="covid-icon" src="images/covid-icon.png" alt=""></span>VID-19</h1>
+    </div>
+    <div class="container row">
+        <div class="box col-lg-4 col-md-4 col-sm-4 active">
+            <h3>Active</h3>
+            <h2 class="no">9756</h2>
+            <p class="date">Mon Apr 15 2020</p>
+            <p>Number of active cases of COVId-19</p>
+        </div>
+        <div class="box col-lg-4 col-md-4 col-sm-4 infected">
+            <h3>Infected</h3>
+            <h2 class="no">11438</h2>
+            <p class="date">Mon Apr 15 2020</p>
+            <p>Number of infected cases of COVId-19</p>
+        </div>
+        <div class="box col-lg-4 col-md-4 col-sm-4 recovered">
+            <h3>Recovered</h3>
+            <h2 class="no">1305</h2>
+            <p class="date">Mon Apr 15 2020</p>
+            <p>Number of recoveries from COVId-19</p>
+        </div>
+        <div class="box col-lg-4 col-md-4 col-sm-4 deaths">
+            <h3>Deaths</h3>
+            <h2 class="no">377</h2>
+            <p class="date">Mon Apr 15 2020</p>
+            <p>Number of deaths caused by COVId-19</p>
+        </div>
+    </div>
+
+
+
+<div class="choose-category">
+
+    <div class="container-fluid category">
+        <div class="select-box">
+            <div class="options-container">
+                <div class="option">
+                    <input type="radio" class="radio" id="india" name="category" />
+                    <label for="india">India</label>
+                </div>
+
+
+                <div class="option">
+                    <input type="radio" class="radio" id="andhra" name="category" />
+                    <label for="andhra">Andhra Pradesh</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="film" name="category" />
+                    <label for="film">Arunachal Pradesh</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="science" name="category" />
+                    <label for="science">Assam</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="art" name="category" />
+                    <label for="art">Bihar</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="music" name="category" />
+                    <label for="music">Chhattisgarh</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="travel" name="category" />
+                    <label for="travel">Goa</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="sports" name="category" />
+                    <label for="sports">Gujarat</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="news" name="category" />
+                    <label for="news">Haryana</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="himachal" name="category" />
+                    <label for="himachal">Himachal Pradesh</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="jharkhand" name="category" />
+                    <label for="jharkhand">Jharkhand</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="karnataka" name="category" />
+                    <label for="karnataka">Karnataka</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="kerala" name="category" />
+                    <label for="kerala">Kerala</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="madhyapradesh" name="category" />
+                    <label for="madhyapradesh">Madhya Pradesh</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="maharashtra" name="category" />
+                    <label for="maharashtra">Maharashtra</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="manipur" name="category" />
+                    <label for="manipur">Manipur</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="meghalaya" name="category" />
+                    <label for="meghalaya">Meghalaya</label>
+                </div>
+
+
+                <div class="option">
+                    <input type="radio" class="radio" id="mizoram" name="category" />
+                    <label for="mizoram">Mizoram</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="nagaland" name="category" />
+                    <label for="nagaland">Nagaland</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="odisha" name="category" />
+                    <label for="odisha">Odisha</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="punjab" name="category" />
+                    <label for="punjab">Punjab</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="rajasthan" name="category" />
+                    <label for="rajasthan">Rajasthan</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="sikkim" name="category" />
+                    <label for="sikkim">Sikkim</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="tamilnadu" name="category" />
+                    <label for="tamilnadu">Tamil Nadu</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="telengana" name="category" />
+                    <label for="telengana">Telangana</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="tripura" name="category" />
+                    <label for="tripura">Tripura</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="uttarpradesh" name="category" />
+                    <label for="uttarpradesh">Uttar Pradesh</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="uttarakhand" name="category" />
+                    <label for="uttarakhand">Uttarakhand</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="westbengal" name="category" />
+                    <label for="westbengal">West Bengal</label>
+                </div>
+            </div>
+
+
+            <div class="selected">
+               India
+                <span><img class="down-arrow" src="images/arrow-down.svg" alt=""></span>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container-fluid chartCategory">
+        <div class="select-box">
+            <div class="chart-options-container">
+                <div class="option">
+                    <input type="radio" class="radio" id="horizontalchart" name="category" />
+                    <label for="horizontalchart">Horizontal</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="barchart" name="category" />
+                    <label for="barchart">Bar Chart</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="linechart" name="category" />
+                    <label for="linechart">Line Chart</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" class="radio" id="piechart" name="category" />
+                    <label for="piechart">Pie Chart</label>
+                </div>
+            </div>
+
+
+            <div class="selected">
+                Horizontal
+                <span><img class="down-arrow" src="images/arrow-down.svg" alt=""></span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+    <div class="container barChart">
+        <canvas id="myChart"></canvas>
+    </div>
+    <!--Javascript-->
+    <script src="controller.js"></script>
+    
+
+    <div class="footer">
+        <p>WE STAND WITH EVERYONE FIGHTING ON THE FRONTLINES</p>
+        <a href="https://www.mygov.in/covid-19/?cbps=1">COVID19INDIA</a>
+        <a href="https://sanketpanda.github.io/Portfolio/index.html">Sanket Panda</a>
+        <p>© Copyright 2020 Sanket Panda</p>
+    </div>
+</body>
+
+</html>
