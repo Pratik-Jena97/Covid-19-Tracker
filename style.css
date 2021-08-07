@@ -97,7 +97,7 @@ p {
   overflow: hidden;
   order: 1;
 }
-.selected {
+.selected, .chartselected {
   background: #2f3640;
   border-radius: 8px;
   margin-bottom: 8px;
@@ -106,7 +106,7 @@ p {
   order: 0;
 }
 
-.selected::after {
+.selected::after, .chartselected::after {
   content: "";
   background-size: contain;
   background-repeat: no-repeat;
@@ -128,7 +128,7 @@ p {
 }
 
 .select-box .options-container.active + .selected::after,
-.select-box .chart-optionscontainer.active + .selected::after {
+.select-box .chart-optionscontainer.active + .chartselected::after {
   transform: rotateX(180deg);
   top: -6px;
 }
@@ -146,7 +146,7 @@ p {
 }
 
 .select-box .option,
-.selected {
+.selected, .chartselected {
   padding: 12px 24px;
   cursor: pointer;
 }

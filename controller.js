@@ -1,6 +1,8 @@
-console.log("Hello World!");
 var myObj;
-
+var chartDataArray;
+var myChart;
+var ctx;
+var chartData;
 var active = document.querySelector(".active .no");
 var infected = document.querySelector(".infected .no");
 var recovered = document.querySelector(".recovered .no");
@@ -40,7 +42,7 @@ getJSON(url,function(err,data)
     else
     {
          myObj = JSON.parse(data);
-         console.log(myObj["statewise"]);
+         stateData(myObj,'Total');
     }
 });
 
@@ -51,7 +53,6 @@ function stateData(countryData,selectedState)
 
         if(selectedState === countryData.statewise[i].state)
         {
-            console.log(selectedState+"   "+countryData.statewise[i].state);
             active.innerHTML = countryData.statewise[i].active;
             infected.innerHTML = countryData.statewise[i].confirmed;
             recovered.innerHTML = countryData.statewise[i].recovered;
@@ -61,14 +62,18 @@ function stateData(countryData,selectedState)
             infectedDate.innerHTML = countryData.statewise[i].lastupdatedtime;
             recoveredDate.innerHTML = countryData.statewise[i].lastupdatedtime;
             deathsDate.innerHTML = countryData.statewise[i].lastupdatedtime;
+
+            chartDataArray = [parseInt(countryData.statewise[i].active), parseInt(countryData.statewise[i].confirmed), parseInt(countryData.statewise[i].recovered), parseInt(countryData.statewise[i].deaths)];
+            console.log(chartDataArray[0]);
+            createChart();
         }
     }
 }
 
-const selected = document.querySelector(".choose-category .selected");
-const optionsContainer = document.querySelector(".choose-category .options-container");
+const selected = document.querySelector(".category .selected");
+const optionsContainer = document.querySelector(".category .options-container");
 
-const optionsList = document.querySelectorAll(".choose-category .option");
+const optionsList = document.querySelectorAll(".category .option");
 
 selected.addEventListener("click", () => {
   optionsContainer.classList.toggle("active");
@@ -85,9 +90,7 @@ optionsList.forEach(o => {
 });
 
 
-const chartTypeSelected = document.querySelector(".chartCategory .selected");
-console.log(chartTypeSelected);
-console.log("Hello");
+const chartTypeSelected = document.querySelector(".chartselected");
 const chartOptionsContainer = document.querySelector(".chart-options-container");
 const chartOptionsList = document.querySelectorAll(".chart-options-container .option");
 var currentChart;
@@ -100,38 +103,38 @@ chartTypeSelected.addEventListener("click", () => {
 
   chartOptionsList.forEach(o => {
     o.addEventListener("click", () => {
-    //chartTypeSelected.innerHTML = o.querySelector("label").innerHTML;
+    chartTypeSelected.innerHTML = o.querySelector("label").innerHTML;
     chartOptionsContainer.classList.remove("active");
       currentChart = o.querySelector("label").innerHTML;
       switch(currentChart){
           case 'Line Chart':
-              console.log("Chart type is "+currentChart);
-            myChart.type = 'line';
             selectedChart = 'line';
+            updateChartType(selectedChart);
             break;
             case 'Bar Chart':
             selectedChart = 'bar';
+            updateChartType(selectedChart);
             break; 
             case 'Horizontal':
             selectedChart = 'horizontal';
+            updateChartType(selectedChart);
             break;  
             case 'Pie Chart':
             selectedChart = 'pie';
+            updateChartType(selectedChart);
             break;   
       }
-      console.log(currentChart)
     });
   });
   
+  
 
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: selectedChart,
-    data: {
+function createChart(){
+    chartData = {
         labels: ['Active', 'Infected', 'Recovered', 'Deaths'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: '# of Cases',
+            data: [chartDataArray[0],chartDataArray[1],chartDataArray[2],chartDataArray[3]],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -150,12 +153,24 @@ var myChart = new Chart(ctx, {
             ],
             borderWidth: 1
         }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
     }
-});
+
+    console.log("chartDataArray is"+typeof chartDataArray[0]);
+    ctx = document.getElementById('myChart').getContext('2d');
+    myChart = new Chart(ctx, {
+        type: 'polarArea',
+        data: chartData,
+    });
+    
+    
+    
+}
+
+
+function updateChartType(chartType) {
+    myChart.destroy();
+    myChart = new Chart(ctx, {
+      type: chartType,
+      data: chartData,
+    });
+  };
