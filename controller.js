@@ -115,8 +115,8 @@ chartTypeSelected.addEventListener("click", () => {
             selectedChart = 'bar';
             updateChartType(selectedChart);
             break; 
-            case 'Horizontal':
-            selectedChart = 'horizontal';
+            case 'Polar Area':
+            selectedChart = 'polarArea';
             updateChartType(selectedChart);
             break;  
             case 'Pie Chart':
